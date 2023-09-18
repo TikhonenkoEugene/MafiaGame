@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Мафия</string>
+    <string name="srt_game_params">Начало новой игры</string>
+    <string name="str_number_of_players">Количество игроков: 10</string>
+    <string name="str_number_of_mafia">Количество мафии: 3</string>
+    <string name="str_plus">+</string>
+    <string name="str_minus">-</string>
+    <string name="str_info">?</string>
+    <string name="str_don">Дон</string>
+    <string name="str_cop">Шериф</string>
+    <string name="str_whore">Любовница</string>
+    <string name="str_doctor">Доктор</string>
+    <string name="str_maniac">Маньяк</string>
+    <string name="str_laker">Везунчик</string>
+    <string name="str_sport_mode">Спортивный режим</string>
+    <string name="str_show_die">Показывать убитых</string>
+    <string name="str_start">Заводи шарманку!</string>
+    <string name="player">Игрок</string>
+    <string name="str_takes_roles">Раздача ролей</string>
+    <string name="str_previous">Предыдущий</string>
+    <string name="str_next">Следующий</string>
+    <string name="str_header_meeting">Ночное знакомство</string>
+    <string name="str_remind">Напомнить</string>
+    <string name="str_go">Просыпаемся</string>
+    <string name="str_header_day_activity">В городе день</string>
+    <string name="str_num_of_maf_in_game">Игроков мафии в игре: </string>
+    <string name="str_summary_header">Сводка за прошедшую ночь:</string>
+    <string name="str_get_faults">фолы</string>
+    <string name="str_night_in_the_city">Получить сводку</string>
+    <string name="str_vote_player">Выставляю игрока: </string>
+    <string name="str_start_timer">Старт</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

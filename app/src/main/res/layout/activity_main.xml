@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <TextView
+        android:id="@+id/txtHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/srt_game_params"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNumberOfPlayers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/str_number_of_players"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHeader" />
+
+    <Button
+        android:id="@+id/btnMinusPlayer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/color_minus"
+        android:onClick="clickMinusPlayer"
+        android:text="@string/str_minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnPlusPlayer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHeader" />
+
+    <Button
+        android:id="@+id/btnPlusPlayer"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/color_plus"
+        android:onClick="clickPlusPlayer"
+        android:text="@string/str_plus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnMinusPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/txtHeader" />
+
+    <TextView
+        android:id="@+id/txtNumberOfMafia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/str_number_of_mafia"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumberOfPlayers" />
+
+    <Button
+        android:id="@+id/btnMinusMafia"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/color_minus"
+        android:onClick="clickMinusMafia"
+        android:text="@string/str_minus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnPlusMafia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinusPlayer" />
+
+    <Button
+        android:id="@+id/btnPlusMafia"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/color_plus"
+        android:onClick="clickPlusMafia"
+        android:text="@string/str_plus"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnMinusMafia"
+        app:layout_constraintTop_toBottomOf="@+id/btnPlusPlayer" />
+
+    <CheckBox
+        android:id="@+id/chkDon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="70dp"
+        android:checked="true"
+        android:onClick="clickChkDon"
+        android:text="@string/str_don"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumberOfMafia" />
+
+    <CheckBox
+        android:id="@+id/chkCop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="70dp"
+        android:checked="true"
+        android:onClick="clickChkCop"
+        android:text="@string/str_cop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumberOfMafia" />
+
+    <CheckBox
+        android:id="@+id/chkDoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:onClick="clickChkDoc"
+        android:text="@string/str_doctor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkDon" />
+
+    <CheckBox
+        android:id="@+id/chkWhore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="10dp"
+        android:onClick="clickChkWhore"
+        android:text="@string/str_whore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkCop" />
+
+    <CheckBox
+        android:id="@+id/chkManiac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:onClick="clickChkManiac"
+        android:text="@string/str_maniac"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkDoc" />
+
+    <CheckBox
+        android:id="@+id/chkLucker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="10dp"
+        android:onClick="clickChkLucky"
+        android:text="@string/str_laker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkWhore" />
+
+    <Switch
+        android:id="@+id/swSport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:onClick="clickSportMode"
+        android:text="@string/str_sport_mode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkManiac" />
+
+    <Switch
+        android:id="@+id/swShowDied"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="clickShowDied"
+        android:text="@string/str_show_die"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swSport" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="270dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="getStart"
+        android:text="@string/str_start"
+        app:cornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnInfo"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="50dp"
+        android:onClick="getInfo"
+        android:text="@string/str_info"
+        android:textSize="26sp"
+        app:cornerRadius="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkLucker" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
