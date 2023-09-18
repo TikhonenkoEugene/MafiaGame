@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_game);
 
         getSupportFragmentManager().beginTransaction()
@@ -42,11 +44,11 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void clickOnFaults(View view) {
-        getSupportFragmentManager().beginTransaction()
-                .setReorderingAllowed(true)
-
-                .add(R.id.flGame, DayActivityFragment.class, null)
-                .commit();
+//        getSupportFragmentManager().beginTransaction()
+//                .setReorderingAllowed(true)
+//
+//                .add(R.id.flGame, DayActivityFragment.class, null)
+//                .commit();
 
     }
 }
