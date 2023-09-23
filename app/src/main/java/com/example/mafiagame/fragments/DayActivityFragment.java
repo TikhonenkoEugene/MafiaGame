@@ -1,7 +1,12 @@
 package com.example.mafiagame.fragments;
 
+import static com.example.mafiagame.activities.GameActivity.START_TIMER;
+import static com.example.mafiagame.activities.GameActivity.STOP_TIMER;
+
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mafiagame.R;
+import com.example.mafiagame.activities.GameActivity;
 import com.example.mafiagame.enums.State;
 import com.example.mafiagame.model.Player;
 import com.example.mafiagame.repos.Repo;
@@ -22,6 +28,8 @@ import java.util.List;
 
 public class DayActivityFragment extends Fragment {
     private Repo repo;
+    private boolean timerIsStarted = false;
+    private GameActivity gameActivity;
     private List<Player> discusQueue;
     private State state = State.DAY;
     private int playerPos = 0;
@@ -33,12 +41,36 @@ public class DayActivityFragment extends Fragment {
     private Button btnGoVoteOrNight;
     private final String headerTxt = "В городе %d день";
     private final String chkVoteText = "Выставляю игрока: %d";
+    private OnFragmentSendDataListener fragmentSendDataListener;
+
+    public Button getBtnStartStopTimer() {
+        return this.btnStartStopTimer;
+    }
+
+    public int getTimeToSpeak() {
+        return this.timeToSpeak;
+    }
+
+    public void setTimeToSpeak(int time) {
+        this.timeToSpeak = time;
+    }
+
+    public interface OnFragmentSendDataListener {
+        void onSendData(String data, DayActivityFragment fragment);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         repo = Repo.get();
+        gameActivity = new GameActivity();
         discusQueue = Helper.getDiscusQueue();
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        fragmentSendDataListener = (OnFragmentSendDataListener) context;
+        super.onAttach(context);
     }
 
     @Override
@@ -105,6 +137,17 @@ public class DayActivityFragment extends Fragment {
             setVotePlayer();
         });
 
+        btnStartStopTimer.setOnClickListener(v -> {
+            if (timerIsStarted) {
+                timerIsStarted = false;
+                fragmentSendDataListener.onSendData(STOP_TIMER, this);
+            } else {
+                timerIsStarted = true;
+                fragmentSendDataListener.onSendData(START_TIMER, this);
+            }
+
+        });
+
         btnGoVoteOrNight.setOnClickListener(v -> {
             switch (state) {
                 case DAY:
@@ -130,17 +173,13 @@ public class DayActivityFragment extends Fragment {
                     }
                     break;
                 case VOTE:
-                    Toast.makeText(getContext(), "Голосование", Toast.LENGTH_SHORT).show();
-                    // TODO: 18.09.2023
+                    fragmentSendDataListener.onSendData(GameActivity.VOTE_FRAGMENT, this);
                     break;
                 case NIGHT:
-                    Toast.makeText(getContext(), "Ночь", Toast.LENGTH_SHORT).show();
-                    // TODO: 18.09.2023
+                    fragmentSendDataListener.onSendData(GameActivity.NIGHT_FRAGMENT, this);
                     break;
             }
         });
-
-
 
         return view;
     }

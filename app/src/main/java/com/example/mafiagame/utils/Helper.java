@@ -19,14 +19,28 @@ public class Helper {
     }
 
     public static MediaPlayer getMediaPlayer(Context context) {
+        MediaPlayer mediaPlayer;
         switch (Helper.random(5)) {
-            case 0: return MediaPlayer.create(context, R.raw.devchonka);
-            case 1: return MediaPlayer.create(context, R.raw.business);
-            case 2: return MediaPlayer.create(context, R.raw.lyubov);
-            case 3: return MediaPlayer.create(context, R.raw.monako);
-            case 4: return MediaPlayer.create(context, R.raw.pohuj);
-            default: return MediaPlayer.create(context, R.raw.povelo);
+            case 0:
+                mediaPlayer = MediaPlayer.create(context, R.raw.devchonka);
+                break;
+            case 1:
+                mediaPlayer = MediaPlayer.create(context, R.raw.business);
+                break;
+            case 2:
+                mediaPlayer = MediaPlayer.create(context, R.raw.lyubov);
+                break;
+            case 3:
+                mediaPlayer = MediaPlayer.create(context, R.raw.monako);
+                break;
+            case 4:
+                mediaPlayer = MediaPlayer.create(context, R.raw.pohuj);
+                break;
+            default:
+                mediaPlayer = MediaPlayer.create(context, R.raw.povelo);
         }
+        mediaPlayer.setLooping(true);
+        return mediaPlayer;
     }
 
     public static List<Player> getDiscusQueue() {

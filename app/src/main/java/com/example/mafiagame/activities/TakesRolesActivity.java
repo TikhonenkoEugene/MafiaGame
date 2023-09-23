@@ -23,7 +23,6 @@ public class TakesRolesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_takes_roles);
 
         mediaPlayer = Helper.getMediaPlayer(this);
-        mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
         if (savedInstanceState == null) {
